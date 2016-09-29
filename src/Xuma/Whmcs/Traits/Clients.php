@@ -107,6 +107,23 @@ trait Clients {
         return $response;
     }
 
+    /**
+     * @param $email
+     * @param $password
+     * @return mixed
+     */
+    public function ValidateLogin($email,$password)
+    {
+        $params['email'] = $email;
+        $params['password2'] = $password;
+
+        $response= $this->getJson('validatelogin',$params);
+
+        return $response;
+    }
+
+
+
     public function decrypt($hash)
     {
         $params['password2'] = $hash;

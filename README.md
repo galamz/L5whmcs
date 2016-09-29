@@ -75,3 +75,8 @@ Getting clients hashed password
 ```
 WHMCS::getClientsPassword($userId)
 ```
+
+Validate Login
+```
+WHMCS::ValidateLogin($email,$password)
+```
