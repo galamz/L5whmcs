@@ -122,6 +122,37 @@ trait Clients {
         return $response;
     }
 
+    /*
+     *  $postfields["action"] = "addclient";
+ $postfields["firstname"] = "Test";
+ $postfields["lastname"] = "User";
+ $postfields["companyname"] = "WHMCS";
+ $postfields["email"] = "demo@whmcs.com";
+ $postfields["address1"] = "123 Demo Street";
+ $postfields["city"] = "Demo";
+ $postfields["state"] = "Florida";
+ $postfields["postcode"] = "AB123";
+ $postfields["country"] = "US";
+ $postfields["phonenumber"] = "123456789";
+ $postfields["password2"] = "demo";
+ $postfields["customfields"] = base64_encode(serialize(array("1"=>"Google")));
+ $postfields["currency"] = "1";
+     */
+
+
+    public function AddClient($firstname = '',$lastname = '',$companyname = '',$email,$password)
+    {
+        $params['email']            = $email;
+        $params['firstname']        = $firstname;
+        $params['lastname']         = $lastname;
+        $params['companyname']      = $companyname;
+        $params['password2']        = $password;
+
+        $response= $this->getJson('addclient',$params);
+
+        return $response;
+    }
+
 
 
     public function decrypt($hash)
